@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="import" href="/bower_components/polymer/polymer.html">
+    <link rel="import" href="/bower_components/paper-slider/paper-slider.html">
+</head>
+<body>
+<polymer-element name="Hello-World">
+    <template>
+        <span>Hello <b>{{person}}</b>  Time to learn about Polymer! </span> <br>
+
+    </template>
+    <script>
+        Polymer('Hello-World', {
+
+            ready: function () {
+            this.person = 'Rebecca';
+            }
+
+        });
+    </script>
+</polymer-element>
+</body>
+</html>

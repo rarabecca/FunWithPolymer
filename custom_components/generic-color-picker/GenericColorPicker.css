@@ -1,0 +1,19 @@
+.red-slider paper-slider::shadow #sliderKnobInner,
+.red-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+    background-color: #9D0400;
+}
+
+.green-slider paper-slider::shadow #sliderKnobInner,
+.green-slider paper-slider::shadow #sliderKnobInner::before,
+.green-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+    background-color: #119d00;
+}
+.blue-slider paper-slider::shadow #sliderKnobInner,
+.blue-slider paper-slider::shadow #sliderBar::shadow #activeProgress {
+    background-color: #001b9d;
+}
+section.p {
+    border-style: solid;
+    border-width: 1px;
+    width: 100px;
+}
