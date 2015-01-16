@@ -2,54 +2,59 @@
 
 <html>
 <head>
-    <meta name="viewport"
-          content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>Making an LRV</title>
-    <!-- Todo: make a import file to reduce clutter -->
-    <script
-            src="/bower_components/webcomponentsjs/webcomponents.js">
-    </script>
-    <link rel="import"
-          href="/bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import"
-          href="/bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import"
-          href="/bower_components/core-icons/core-icons.html">
-    <link rel="import"
-          href="/bower_components/paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
-    <link rel="import" href="/bower_components/paper-tabs/paper-tab.html">
-    <link rel="import" href="css/main.css">
-    <link rel="import" href="/bower_components/core-icon/core-icon.html">
-    <link rel="import" href="/bower_components/core-pages/core-pages.html">
+    <!-- 1. Load platform support before any code that touches the DOM. -->
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <!-- 2. Load the component using an HTML Import -->
+    <link rel="import" href="custom_components/HelloWorld/HelloWorld.html">
+    <link rel="import" href="custom_components/generic-color-picker/GenericColorPicker.html">
 </head>
+<body>
 
-<body fullbleed vertical layout unresolved>
-<template is="auto-binding">
-    <core-header-panel flex>
-        <core-toolbar id="mainheader" class="medium-tall">
-            <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-            <div flex>Real-Time Data Viewer</div>
-            <paper-tabs id="wellTabs" class="bottom fit" selected="{{selected}}" flex noink>
-                <paper-tab id="Well 1">Tab 1</paper-tab>
-                <paper-tab id="Well 2">Tab 2</paper-tab>
-                <paper-tab id="Well 3">Tab 3</paper-tab>
-            </paper-tabs>
-        </core-toolbar>
-        <core-pages id="wellTabs" selected="{{selected}}">
-            <div>Tab 1</div>
-            <div>Tab 2</div>
-            <div>Tab 3</div>
-        </core-pages>
-    </core-header-panel>
-</template>
-<!-- Todo: have scripts be in another file -->
-<script>
-    var tabs = document.querySelector('paper-tabs');
-
-    tabs.addEventListener('core-select', function () {
-        console.log("Selected: " + tabs.selected);
-    });
-</script>
 </body>
+<Hello-World></Hello-World>
+<generic-color-picker></generic-color-picker>
+<!--<head>-->
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">-->
+    <!--<title>Document</title>-->
+    <!--<script-->
+            <!--src="/bower_components/webcomponentsjs/webcomponents.js">-->
+    <!--</script>-->
+    <!--<link rel="import"-->
+          <!--href="/bower_components/core-toolbar/core-toolbar.html">-->
+    <!--<link rel="import"-->
+          <!--href="/bower_components/core-header-panel/core-header-panel.html">-->
+    <!--<link rel="import"-->
+          <!--href="/bower_components/core-icons/core-icons.html">-->
+    <!--<link rel="import"-->
+          <!--href="/bower_components/paper-icon-button/paper-icon-button.html">-->
+    <!--<link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">-->
+    <!--<link rel="import" href="/bower_components/paper-tabs/paper-tab.html">-->
+    <!--<link rel="import" href="css/main.css">-->
+    <!--<link rel="import" href="/bower_components/core-icon/core-icon.html">-->
+    <!--<link rel="import" href="/bower_components/core-pages/core-pages.html">-->
+<!--</head>-->
+<!--<body fullbleed vertical layout unresolved>-->
+    <!--<core-header-panel flex>-->
+        <!--<core-toolbar id="mainheader" class="medium-tall">-->
+            <!--<paper-icon-button id="navicon" icon="menu"></paper-icon-button>-->
+            <!--<div flex>Live Rig View</div>-->
+            <!--<paper-tabs class="bottom fit" link selected="{{tabSelected}}" flex noink style="max-width: 800px">-->
+                <!--<paper-tab>Well 1</paper-tab>-->
+                <!--<paper-tab>Well 2</paper-tab>-->
+                <!--<paper-tab>Well 3</paper-tab>-->
+                <!--<paper-tab>-->
+                    <!--<paper-icon-button id="AddWell" icon="add"></paper-icon-button>-->
+                <!--</paper-tab>-->
+            <!--</paper-tabs>-->
+        <!--</core-toolbar>-->
+    <!--</core-header-panel>-->
+
+    <!--<core-pages selected="{{tabSelected}}">-->
+      <!--<div>Well 1</div>-->
+      <!--<div>Well 2</div>-->
+      <!--<div>Well 3</div>-->
+    <!--</core-pages>-->
+
+<!--</body>-->
 </html>
