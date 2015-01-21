@@ -48,12 +48,33 @@
                 this.newColor = "#" + this.redValue.toString(16).concat(this.greenValue.toString(16)).concat(this.blueValue.toString(16));
                 console.log(this.newColor);
             },
-            colorChanged: function(oldValue, newValue, path){
+            colorChanged: function(oldValue, newValue) {
                 console.log("OldValue: " + oldValue);
                 console.log("NewValue: " + newValue);
-                console.log(path);
-                this.newColor = "#" + this.redValue.toString(16).concat(this.greenValue.toString(16)).concat(this.blueValue.toString(16));
-                console.log(this.newColor);
+
+                var newRedValue = '';
+                var newGreenValue = '';
+                var newBlueValue = '';
+
+                if (this.redValue < 16) {
+                    newRedValue = '0' + this.redValue.toString(16);
+                } else {
+                    newRedValue = this.redValue.toString(16);
+                }
+
+                if (this.greenValue < 16) {
+                    newGreenValue = '0' + this.greenValue.toString(16);
+                } else {
+                    newGreenValue = this.greenValue.toString(16);
+                }
+
+                if (this.blueValue < 16) {
+                    newBlueValue = '0' + this.blueValue.toString(16);
+                } else {
+                    newBlueValue = this.blueValue.toString(16);
+                }
+
+                this.newColor = "#" + newRedValue.concat(newGreenValue).concat(newBlueValue);
             }
         });
     </script>
