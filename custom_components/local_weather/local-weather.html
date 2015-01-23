@@ -7,22 +7,57 @@
 </head>
 <body>
 <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="/bower_components/core-image/core-image.html">
+<link rel="import" href="/bower_components/paper-button/paper-button.html">
 
-<polymer-element name="weather-local" attributes="url" >
+<polymer-element name="weather-local" attributes="url" attributes="weatherLocation">
     <template>
-        <core-ajax auto url="{{url}}" handleAs="json" on-core-response={{ajaxResponse}}></core-ajax>
-    </template>
-    <script>
+        <core-ajax id="weatherCall" url={{baseUrl}} handleAs="json" on-core-response={{onAjaxResponse}}></core-ajax>
+        <section style="border: solid thick gray">
+            <core-field>
+                <core-label>Enter a City & State/Providence</core-label>
+                <input placeholder="I have a label" value={{weatherLocation}} flex>
+                <paper-button raised class="colored" role="button" on-tap={{findWeather}}>Get Weather</paper-button>
+            </core-field>
 
+            <h3>Current Location: {{weatherLocation}}</h3>
+            <div>{{weather.main}}</div>
+            <img src={{weatherIcon}} alt={{weather.description}} height="75" width="75">
+        </section>
+
+    </template>
+    <!--TODO: observe the input and run a weather query off that-->
+    <script>
         Polymer('weather-local', {
-            url: 'http://api.openweathermap.org/data/2.5/weather?q=Houston,tx',
-            weather: '',
-            ajaxResponse: function(event) {
-                console.log('Event: '+ event);
-                console.log('detail: '+ event.detail.response.coord.toString() );
-                this.weather = event.detail;
-                console.log(event);
+            units:'',
+            weatherLocation: '',
+            baseUrL:'',
+            response: [],
+            weather: {},
+            weatherIcon: '',
+            ready: function() {
+                this.weatherLocation =
+                this.units= 'imperial';
+                this.baseUrl='http://api.openweathermap.org/data/2.5/weather?q='.concat(this.weatherLocation).concat('&units=').concat(this.units);
+            },
+            observe: function() {
+                this.weatherLocation =
+            },
+
+            findWeather: function(event, detail, sender) {
+                this.$.weatherCall.go();
+            },
+
+            onAjaxResponse: function(e) {
+                this.weather = e.detail.response.weather[0];
+                this.weatherIcon = 'http://openweathermap.org/img/w/'.concat( this.weather.icon).concat('.png');
+
+                console.log(this.weather);
+                console.log(this.weather.description);
+                console.log(this.weather.icon);
+                console.log(this.weather.main);
             }
+
         });
     </script>
 </polymer-element>
