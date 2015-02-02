@@ -49,27 +49,9 @@
                 console.log("OldValue: " + oldValue);
                 console.log("NewValue: " + newValue);
 
-                var newRedValue = '';
-                var newGreenValue = '';
-                var newBlueValue = '';
-
-                if (this.redValue < 16) {
-                    newRedValue = '0' + this.redValue.toString(16);
-                } else {
-                    newRedValue = this.redValue.toString(16);
-                }
-
-                if (this.greenValue < 16) {
-                    newGreenValue = '0' + this.greenValue.toString(16);
-                } else {
-                    newGreenValue = this.greenValue.toString(16);
-                }
-
-                if (this.blueValue < 16) {
-                    newBlueValue = '0' + this.blueValue.toString(16);
-                } else {
-                    newBlueValue = this.blueValue.toString(16);
-                }
+                var newRedValue = this.redValue < 16 ? '0' + this.redValue.toString(16) : this.redValue.toString(16);
+                var newGreenValue = this.greenValue < 16 ? '0' + this.greenValue.toString(16) :this.greenValue.toString(16);
+                var newBlueValue = this.blueValue < 16 ? '0' + this.blueValue.toString(16) : this.blueValue.toString(16);
 
                 this.newColor = "#" + newRedValue.concat(newGreenValue).concat(newBlueValue);
             }
